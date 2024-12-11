@@ -46,25 +46,25 @@ tasks:
     memory: 4
 
   ## Step 1: JOB related AMP Ingest Dataset
-  #- type: run_session
-  #  name: Ingest Dataset
-  #  entity_label: create_dataset_job
-  #  script: 1_job-ingest-dataset/site_scrapper.py
-  #  short_summary: Ingest dataset to be added later into the vector database    
-  #  arguments: None
-  #  cpu: 2
-  #  memory: 4
+  - type: run_session
+    name: Ingest Dataset
+    entity_label: create_dataset_job
+    script: 1_job-ingest-dataset/site_scrapper.py
+    short_summary: Ingest dataset to be added later into the vector database    
+    arguments: None
+    cpu: 2
+    memory: 4
 
 
   ## Step 2: JOB related to set up Vector DB
-  #- type: run_session
-  #  name: Create Vector Database
-  #  entity_label: create_vectordb_job
-  #  script: 2_job-create-vector-db/bootstrap_ollama.py
-  #  short_summary: Setup the vector database
-  #  arguments: None
-  #  cpu: 2
-  #  memory: 4
+  - type: run_session
+    name: Create Vector Database
+    entity_label: create_vectordb_job
+    script: 2_job-create-vector-db/bootstrap_ollama.py
+    short_summary: Setup the vector database
+    arguments: None
+    cpu: 2
+    memory: 4
 
   ## Step 3 : Build the Evaluations dashboard
   - type: run_session
@@ -99,14 +99,14 @@ tasks:
       TASK_TYPE: START_APPLICATION
 
   ## Step 5:  Run WealthE
-  #- type: start_application
-  #  name: Start WealthE Application
-  #  short_summary:  WealthE application uses Chainlit to provide a Q&A on Indian Capital markets
-  #  long_summary: Use the Application for Q&A on Indian capital markets. The application also remembers the prior question, so you can ask "can you elaborate?"
-  #  subdomain: wealthe
-  #  script: 6_app-run-chat-bot/app.py
-  #  cpu: 8
-  #  memory: 32
-  #  gpu: 1
-  #  environment_variables:
-  #    TASK_TYPE: START_APPLICATION
+  - type: start_application
+    name: Start WealthE Application
+    short_summary:  WealthE application uses Chainlit to provide a Q&A on Indian Capital markets
+    long_summary: Use the Application for Q&A on Indian capital markets. The application also remembers the prior question, so you can ask "can you elaborate?"
+    subdomain: wealthe
+    script: 6_app-run-chat-bot/app.py
+    cpu: 8
+    memory: 32
+    gpu: 1
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
