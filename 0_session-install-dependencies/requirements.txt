@@ -2,7 +2,6 @@ pydantic==2.9.2
 torch==2.3.0
 onnxruntime==1.19.2
 pysqlite3-binary==0.5.2.post3
-sqlite3>=3.35.0
 ipython>=8.12.0
 ipywidgets>=8.0.6
 sentence-transformers==2.7.0
@@ -19,3 +18,4 @@ streamlit==1.34.0
 streamlit-extras==0.4.2
 trafilatura==1.8.1
 trulens-eval==0.27.0
+sqlite3>=3.35.5
