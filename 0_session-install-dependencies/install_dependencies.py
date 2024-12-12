@@ -24,5 +24,9 @@ except Exception as e:
     sys.exit(1)  # Exit with a non-zero status code
 
 
-!pip install --upgrade pip
-!pip install --no-cache-dir --log 0_session-install-dependencies/pip-req.log -r 0_session-install-dependencies/requirements.txt
+#!pip install --upgrade pip
+#!pip install --no-cache-dir --log 0_session-install-dependencies/pip-req.log -r 0_session-install-dependencies/requirements.txt
+
+!mkdir /home/cdsw/packages
+!pip download --no-cache-dir --log 0_session-install-dependencies/pip-down.log -r 0_session-install-dependencies/requirements.txt --dest /home/cdsw/packages
+!pip install --no-cache-dir --log 0_session-install-dependencies/pip-req.log --no-index --find-links=/home/cdsw/packages -r 0_session-install-dependencies/requirements.txt
